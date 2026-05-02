@@ -66,7 +66,7 @@ export function SignUpPage() {
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="email">E-mail</FieldLabel>
+          <FieldLabel htmlFor="email">Email</FieldLabel>
           <Input
             type="email"
             id="email"
