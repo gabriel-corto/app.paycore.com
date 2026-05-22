@@ -115,7 +115,7 @@ export function SignUpPage() {
           <p className="text-center text-xs text-zinc-600">
             Do you already have an account?{" "}
             <Button variant="link" className="p-0 text-xs">
-              <Link to="/sign-in">Login</Link>
+              <Link to="/a/sign-in">Login</Link>
             </Button>
           </p>
         </Field>

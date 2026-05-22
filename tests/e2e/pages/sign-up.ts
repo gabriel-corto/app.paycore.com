@@ -25,7 +25,7 @@ export class SignUpPage {
   }
 
   async navigate() {
-    await this.page.goto("/sign-up", { waitUntil: "domcontentloaded" })
+    await this.page.goto("/a/sign-up", { waitUntil: "domcontentloaded" })
   }
 
   async fillRegisterForm(registerForm: RegisterForm) {

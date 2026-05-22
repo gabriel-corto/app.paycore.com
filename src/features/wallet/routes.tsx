@@ -3,7 +3,7 @@ import { DashboardPage } from "./pages/dashboard"
 
 export const walletRoutes: RouteObject[] = [
   {
-    path: "",
+    path: "/",
     element: <DashboardPage />,
   },
 ]

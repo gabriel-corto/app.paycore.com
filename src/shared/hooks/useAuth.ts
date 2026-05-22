@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query"
 import { toast } from "react-toastify"
 
-import { signUp } from "../services/auth"
+import { signIn, signUp } from "../services/auth"
 import { handleApiError } from "../utils/error-handler"
 
 export function useAuth() {
@@ -15,5 +15,12 @@ export function useAuth() {
     },
   })
 
-  return { signUpFn, isSignUpPending }
+  const { mutateAsync: signInFn, isPending: isSignInPending } = useMutation({
+    mutationFn: signIn,
+    onError: (error) => {
+      toast.error(handleApiError(error))
+    },
+  })
+
+  return { signUpFn, isSignUpPending, signInFn, isSignInPending }
 }

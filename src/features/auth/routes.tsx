@@ -5,11 +5,11 @@ import { SignUpPage } from "./pages/sign-up"
 
 export const authRoutes: RouteObject[] = [
   {
-    path: "/sign-in",
+    path: "/a/sign-in",
     element: <SignInPage />,
   },
   {
-    path: "/sign-up",
+    path: "/a/sign-up",
     element: <SignUpPage />,
   },
 ]

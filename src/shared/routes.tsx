@@ -6,12 +6,12 @@ import { walletRoutes } from "@/features/wallet/routes"
 
 export const routes = createBrowserRouter([
   {
-    path: "/",
+    path: "/a",
     element: <AuthLayout />,
     children: [...authRoutes],
   },
   {
-    path: "/w",
+    path: "/",
     element: <AppLayout />,
     children: [...walletRoutes],
   },
