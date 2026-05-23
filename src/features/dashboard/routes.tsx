@@ -1,9 +1,9 @@
 import { type RouteObject } from "react-router"
 import { DashboardPage } from "./pages"
 
-export const walletRoutes: RouteObject[] = [
+export const dashboardRoutes: RouteObject[] = [
   {
-    path: "/w",
+    path: "/",
     element: <DashboardPage />,
   },
 ]

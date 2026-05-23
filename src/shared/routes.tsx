@@ -3,6 +3,7 @@ import { authRoutes } from "@/features/auth/routes"
 import { AuthLayout } from "./layouts/auth"
 import { AppLayout } from "./layouts/app"
 import { walletRoutes } from "@/features/wallet/routes"
+import { dashboardRoutes } from "@/features/dashboard/routes"
 
 export const routes = createBrowserRouter([
   {
@@ -13,6 +14,6 @@ export const routes = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    children: [...walletRoutes],
+    children: [...dashboardRoutes, ...walletRoutes],
   },
 ])
