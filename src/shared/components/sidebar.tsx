@@ -11,7 +11,7 @@ import { AccountMenu } from "./account-menu"
 
 export function Sidebar() {
   return (
-    <aside className="flex w-56 flex-col justify-between border-r border-zinc-200 p-4">
+    <aside className="fixed flex h-full w-56 flex-col justify-between border-r border-zinc-200 p-4">
       <div className="flex flex-col">
         <Logo />
 
