@@ -1,6 +1,7 @@
 import { api } from "../lib/axios"
-import type { ApiAuthResponse, ApiResponse } from "../types/api"
+import type { ApiDataResponse, ApiResponse, AuthResponse } from "../types/api"
 import type { SignInBody, SignUpBody } from "../types/forms"
+import type { Me } from "../types/schemas"
 
 export async function signUp(body: SignUpBody) {
   const response = await api.post<ApiResponse>("/users/create", { ...body })
@@ -8,6 +9,14 @@ export async function signUp(body: SignUpBody) {
 }
 
 export async function signIn(body: SignInBody) {
-  const response = await api.post<ApiAuthResponse>("/auth/sign-in", { ...body })
-  return response.data
+  const response = await api.post<ApiDataResponse<AuthResponse>>(
+    "/auth/login",
+    { ...body }
+  )
+  return response.data.data
+}
+
+export async function getMe() {
+  const response = await api.get<ApiDataResponse<Me>>("/users/me")
+  return response.data.data
 }

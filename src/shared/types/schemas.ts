@@ -4,3 +4,7 @@ export interface Me {
   name: string
   email: string
 }
+
+export interface WalletBalance {
+  balance: number
+}

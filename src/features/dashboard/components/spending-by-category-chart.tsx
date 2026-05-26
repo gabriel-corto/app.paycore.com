@@ -1,6 +1,6 @@
 import { Wallet } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Cell, Legend, Pie, PieChart } from "recharts"
+import { Cell, Pie, PieChart } from "recharts"
 
 const data01 = [
   { name: "Food", value: 400 },
@@ -36,8 +36,6 @@ export function SpendingByCategoryChart() {
             {data01.map((entry, index) => (
               <Cell key={`cell-${index}`} />
             ))}
-
-            <Legend fontSize={10} iconType="circle" align="right" />
           </Pie>
         </PieChart>
       </div>

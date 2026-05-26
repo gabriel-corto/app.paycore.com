@@ -1,6 +1,6 @@
 import { DashboardCircleRemoveIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Badge } from "./ui/badge"
+import { WalletBalanceBadge } from "@/features/wallet/components/wallet-balance-badge"
 
 export function Header() {
   return (
@@ -11,9 +11,7 @@ export function Header() {
       </div>
 
       <div>
-        <Badge variant="destructive" className="rounded-sm px-4 py-3">
-          AOA 0.00
-        </Badge>
+        <WalletBalanceBadge />
       </div>
     </div>
   )
