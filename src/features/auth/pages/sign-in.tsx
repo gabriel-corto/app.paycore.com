@@ -28,23 +28,30 @@ export function SignInPage() {
 
   return (
     <form
-      className="flex flex-col gap-y-10 lg:w-sm"
+      className="flex w-full flex-col gap-y-12 lg:w-sm"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex flex-col items-center gap-y-2">
-        <h3 className="text-3xl font-bold text-zinc-800">Welcome back</h3>
-        <p className="text-xs text-zinc-600 lg:text-sm">
-          Enter your e-mail and password to acess yout account
+      <div className="flex flex-col items-center gap-y-3">
+        <h3 className="text-4xl font-extrabold tracking-tight text-foreground">
+          Welcome back
+        </h3>
+        <p className="text-sm font-medium text-muted-foreground">
+          Enter your e-mail and password to access your account
         </p>
       </div>
 
-      <FieldGroup className="gap-y-4">
+      <FieldGroup className="gap-y-6">
         <Field>
-          <FieldLabel htmlFor="email">E-mail</FieldLabel>
+          <FieldLabel
+            htmlFor="email"
+            className="font-semibold text-foreground/80"
+          >
+            E-mail
+          </FieldLabel>
           <Input
             type="email"
             id="email"
-            className="h-11"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
             placeholder="your@email.com"
             {...register("email")}
           />
@@ -52,11 +59,24 @@ export function SignInPage() {
         </Field>
 
         <Field className="relative">
-          <FieldLabel htmlFor="password">Password</FieldLabel>
+          <div className="flex items-center justify-between">
+            <FieldLabel
+              htmlFor="password"
+              className="text-xs font-semibold text-foreground/80"
+            >
+              Password
+            </FieldLabel>
+            <Button
+              variant="link"
+              className="h-fit p-0 text-xs font-bold text-primary"
+            >
+              Forgot password?
+            </Button>
+          </div>
           <Input
             type="password"
             id="password"
-            className="h-11"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
             placeholder="********"
             {...register("password")}
           />
@@ -65,37 +85,49 @@ export function SignInPage() {
           )}
         </Field>
 
-        <Field orientation="horizontal">
-          <Button variant="link" className="p-0 text-right text-xs">
-            Forgot your password?
-          </Button>
-        </Field>
-
-        <Field orientation="horizontal">
+        <Field className="mt-4">
           <Button
             type="submit"
             disabled={isSignInPending}
-            className="h-11 w-full font-semibold text-white"
+            className="h-12 w-full text-base font-bold text-white transition-all active:scale-[0.98] dark:text-white"
           >
             {isSignInPending ? (
               <>
-                <HugeiconsIcon icon={Loading02Icon} className="animate-spin" />
-                Loading...
+                <HugeiconsIcon
+                  icon={Loading02Icon}
+                  className="size-5 animate-spin"
+                />
+                <span>Signing in...</span>
               </>
             ) : (
               <>
-                <HugeiconsIcon icon={Login01Icon} />
-                Login
+                <HugeiconsIcon icon={Login01Icon} className="size-5" />
+                <span>Sign In</span>
               </>
             )}
           </Button>
         </Field>
 
+        <div className="relative py-4">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t border-border" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background px-2 font-bold text-muted-foreground">
+              Or continue with
+            </span>
+          </div>
+        </div>
+
         <Field>
-          <p className="text-center text-xs text-zinc-600">
-            Do not have an account?{" "}
-            <Button variant="link" className="p-0 text-xs">
-              <Link to="/a/sign-up">Register</Link>
+          <p className="text-center text-sm text-muted-foreground">
+            Don't have an account?{" "}
+            <Button
+              variant="link"
+              className="p-0 text-sm font-bold text-primary"
+              asChild
+            >
+              <Link to="/a/sign-up">Register now</Link>
             </Button>
           </p>
         </Field>

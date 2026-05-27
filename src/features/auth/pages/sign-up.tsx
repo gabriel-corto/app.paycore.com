@@ -30,23 +30,30 @@ export function SignUpPage() {
 
   return (
     <form
-      className="flex flex-col gap-y-10 lg:w-sm"
+      className="flex w-full flex-col gap-y-12 lg:w-sm"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex flex-col items-center gap-y-2">
-        <h3 className="text-3xl font-bold text-zinc-800">Register</h3>
-        <p className="text-xs text-zinc-600 lg:text-sm">
+      <div className="flex flex-col items-center gap-y-3">
+        <h3 className="text-4xl font-extrabold tracking-tight text-foreground">
+          Create account
+        </h3>
+        <p className="text-sm font-medium text-muted-foreground">
           Fill in the fields below to create your account
         </p>
       </div>
 
-      <FieldGroup className="min-w-xs gap-y-4">
+      <FieldGroup className="min-w-xs gap-y-6">
         <Field>
-          <FieldLabel htmlFor="nif">NIF</FieldLabel>
+          <FieldLabel
+            htmlFor="nif"
+            className="text-xs font-semibold text-foreground/80"
+          >
+            NIF
+          </FieldLabel>
           <Input
             type="text"
             id="nif"
-            className="h-11"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
             placeholder="Your NIF"
             {...register("nif")}
           />
@@ -54,23 +61,33 @@ export function SignUpPage() {
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="name">Name</FieldLabel>
+          <FieldLabel
+            htmlFor="name"
+            className="text-xs font-semibold text-foreground/80"
+          >
+            Name
+          </FieldLabel>
           <Input
             type="text"
             id="name"
-            className="h-11"
-            placeholder="Your name"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
+            placeholder="Your full name"
             {...register("name")}
           />
           {errors.name && <FormErrorMessage message={errors.name.message} />}
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
+          <FieldLabel
+            htmlFor="email"
+            className="text-xs font-semibold text-foreground/80"
+          >
+            Email
+          </FieldLabel>
           <Input
             type="email"
             id="email"
-            className="h-11"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
             placeholder="your@email.com"
             {...register("email")}
           />
@@ -78,12 +95,17 @@ export function SignUpPage() {
         </Field>
 
         <Field className="relative">
-          <FieldLabel htmlFor="password">Password</FieldLabel>
+          <FieldLabel
+            htmlFor="password"
+            className="text-xs font-semibold text-foreground/80"
+          >
+            Password
+          </FieldLabel>
           <Input
             type="password"
             id="password"
-            className="h-11"
-            placeholder="Create a password"
+            className="h-12 border-white/5 bg-white/5 transition-all focus:border-primary/50 focus:bg-white/10"
+            placeholder="Create a strong password"
             {...register("password")}
           />
           {errors.password && (
@@ -91,31 +113,38 @@ export function SignUpPage() {
           )}
         </Field>
 
-        <Field orientation="horizontal">
+        <Field className="mt-4">
           <Button
             type="submit"
             disabled={isSignUpPending}
-            className="h-11 w-full font-semibold text-white"
+            className="h-12 w-full text-base font-bold text-white transition-all dark:text-white"
           >
             {isSignUpPending ? (
               <>
-                <HugeiconsIcon icon={Loading02Icon} className="animate-spin" />
-                Loading...
+                <HugeiconsIcon
+                  icon={Loading02Icon}
+                  className="size-5 animate-spin"
+                />
+                <span>Creating account...</span>
               </>
             ) : (
               <>
-                <HugeiconsIcon icon={UserAdd01Icon} />
-                Register
+                <HugeiconsIcon icon={UserAdd01Icon} className="size-5" />
+                <span>Register</span>
               </>
             )}
           </Button>
         </Field>
 
         <Field>
-          <p className="text-center text-xs text-zinc-600">
-            Do you already have an account?{" "}
-            <Button variant="link" className="p-0 text-xs">
-              <Link to="/a/sign-in">Login</Link>
+          <p className="text-center text-sm text-muted-foreground">
+            Already have an account?{" "}
+            <Button
+              variant="link"
+              className="p-0 text-sm font-bold text-primary"
+              asChild
+            >
+              <Link to="/a/sign-in">Login here</Link>
             </Button>
           </p>
         </Field>

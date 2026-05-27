@@ -1,6 +1,7 @@
 import {
   ChevronsUpDown,
   Logout02Icon,
+  Moon02Icon,
   Settings02Icon,
   Sun03Icon,
 } from "@hugeicons/core-free-icons"
@@ -18,11 +19,13 @@ import { session } from "../utils/session-storage"
 import { useNavigate } from "react-router"
 import { useAuth } from "../hooks/useAuth"
 import { AccountMenuSkeleton } from "./account-menu-skeleton"
-import { getAvatarFallback } from "../utils/avatar-fallback"
+import { getAvatarFallback } from "../utils/name-formatter"
+import { useTheme } from "./theme-provider"
 
 export function AccountMenu() {
   const navigate = useNavigate()
   const { user, isUserLoading } = useAuth()
+  const { theme, setTheme } = useTheme()
 
   const logout = () => {
     session.clear()
@@ -45,11 +48,13 @@ export function AccountMenu() {
               </Avatar>
 
               <div className="flex flex-col text-xs">
-                <strong className="text-zinc-800">{user?.name}</strong>
-                <span className="text-[9px] text-zinc-500">{user?.email}</span>
+                <strong className="text-foreground">{user?.name}</strong>
+                <span className="text-[9px] text-muted-foreground">
+                  {user?.email}
+                </span>
               </div>
 
-              <div className="text-zinc-500">
+              <div className="text-muted-foreground">
                 <HugeiconsIcon icon={ChevronsUpDown} className="h-4 w-4" />
               </div>
             </div>
@@ -57,9 +62,15 @@ export function AccountMenu() {
         </DropdownMenuTrigger>
 
         <DropdownMenuContent className="w-full" align="start">
-          <DropdownMenuItem className="flex items-center gap-x-2">
-            <HugeiconsIcon icon={Sun03Icon} className="h-4 w-4" />
-            Theme
+          <DropdownMenuItem
+            className="flex items-center gap-x-2"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            <HugeiconsIcon
+              icon={theme === "dark" ? Sun03Icon : Moon02Icon}
+              className="h-4 w-4"
+            />
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
           </DropdownMenuItem>
 
           <DropdownMenuItem className="flex items-center gap-x-2">

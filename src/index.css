@@ -127,6 +127,16 @@
   button {
     @apply cursor-pointer;
   }
+
+  /* Autofill styling */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    outline: none !important;
+    border-color: transparent !important;
+  }
 }
 
 body {

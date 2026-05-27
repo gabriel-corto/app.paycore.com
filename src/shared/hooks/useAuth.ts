@@ -10,15 +10,17 @@ export function useAuth() {
   const navigate = useNavigate()
 
   const { data: user, isLoading: isUserLoading } = useQuery({
-    queryKey: ["me"],
+    queryKey: ["me", session.get().userId],
     queryFn: getMe,
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
+    enabled: !!session.get().userId,
   })
 
   const { mutateAsync: signUpFn, isPending: isSignUpPending } = useMutation({
     mutationFn: signUp,
-    onSuccess: () => {
+    onSuccess: async (_, data) => {
+      await signInFn({ email: data.email, password: data.password })
       toast.success("Account created successfully")
     },
     onError: (error) => {

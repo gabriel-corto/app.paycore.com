@@ -9,3 +9,7 @@ export interface SignInBody {
   email: string
   password: string
 }
+
+export interface WalletDepositBody {
+  amount: number
+}

@@ -6,3 +6,13 @@ export const moneyFormatter = (amount: number) => {
     maximumFractionDigits: 2,
   }).format(amount)
 }
+
+export const dateFormatter = (date: string) => {
+  return new Intl.DateTimeFormat("pt-PT", {
+    hour: "numeric",
+    minute: "2-digit",
+    year: "numeric",
+    day: "2-digit",
+    month: "2-digit",
+  }).format(new Date(date))
+}
