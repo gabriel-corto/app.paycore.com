@@ -2,13 +2,13 @@ import { Wallet, WalletAdd01Icon } from "@hugeicons/core-free-icons"
 import { useAuth } from "@/shared/hooks/useAuth"
 
 import { WeeklyWalletTransactionChart } from "../components/weekly-wallet-transaction-chart"
-import { WalletOverviewCard } from "../../../shared/components/wallet-overview-card"
+import { WalletOverviewCard } from "../../../shared/components/card/wallet-overview-card"
 import { SummaryCard } from "../components/summary-card"
 import { LastTransactionsTable } from "../components/last-transaction-table"
 import { getFirstName } from "@/shared/utils/name-formatter"
 import { Button } from "@/shared/components/ui/button"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { WalletDepositDialog } from "@/shared/components/wallet-deposit-dialog"
+import { WalletDepositDialog } from "@/shared/components/dialog/wallet-deposit-dialog"
 import { useState } from "react"
 
 export function DashboardPage() {

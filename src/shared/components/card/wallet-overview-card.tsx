@@ -1,10 +1,10 @@
-import { Logo } from "@/shared/components/logo"
+import { Logo } from "@/shared/components/layout/logo"
 import { useWallet } from "@/features/wallet/hooks/useWallet"
 import { moneyFormatter } from "@/shared/utils/formatter"
 import { Loading03Icon, WifiFullSignalIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { useAuth } from "@/shared/hooks/useAuth"
-import { cn } from "../lib/utils"
+import { cn } from "../../lib/utils"
 
 interface Props {
   className?: string

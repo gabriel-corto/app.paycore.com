@@ -13,3 +13,8 @@ export interface SignInBody {
 export interface WalletDepositBody {
   amount: number
 }
+
+export interface WalletP2PBody {
+  amount: number
+  recipient: string
+}

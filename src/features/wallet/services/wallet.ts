@@ -1,6 +1,6 @@
 import { api } from "@/shared/lib/axios"
 import type { ApiResponse, ApiDataResponse } from "@/shared/types/api"
-import type { WalletDepositBody } from "@/shared/types/forms"
+import type { WalletDepositBody, WalletP2PBody } from "@/shared/types/forms"
 import type { WalletBalance, WalletTransaction } from "@/shared/types/schemas"
 
 export const getWalletBalance = async () => {
@@ -19,5 +19,10 @@ export const getWalletTransactions = async () => {
 
 export const walletDeposit = async (body: WalletDepositBody) => {
   const response = await api.post<ApiResponse>("/wallet/deposit", body)
+  return response.data
+}
+
+export const walletP2P = async (body: WalletP2PBody) => {
+  const response = await api.post<ApiResponse>("/wallet/p2p", body)
   return response.data
 }

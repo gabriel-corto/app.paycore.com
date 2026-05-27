@@ -3,6 +3,7 @@ import {
   getWalletBalance,
   getWalletTransactions,
   walletDeposit,
+  walletP2P,
 } from "../services/wallet"
 import { session } from "@/shared/utils/session-storage"
 import { API_CONFIG } from "@/shared/constants/constants"
@@ -42,6 +43,23 @@ export const useWallet = () => {
       },
     })
 
+  const { mutateAsync: walletP2PFn, isPending: isWalletP2PLoading } =
+    useMutation({
+      mutationFn: walletP2P,
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: ["wallet-balance", session.get().walletId],
+        })
+        queryClient.invalidateQueries({
+          queryKey: ["wallet-transactions", session.get().walletId],
+        })
+        toast.success("Wallet P2P successful")
+      },
+      onError: (error) => {
+        toast.error(handleApiError(error))
+      },
+    })
+
   return {
     walletBalance,
     isWalletBalanceLoading,
@@ -49,5 +67,7 @@ export const useWallet = () => {
     isWalletTransactionsLoading,
     walletDepositFn,
     isWalletDepositLoading,
+    walletP2PFn,
+    isWalletP2PLoading,
   }
 }

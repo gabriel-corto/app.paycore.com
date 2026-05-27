@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router"
 
-import { Header } from "../components/header"
-import { Sidebar } from "../components/sidebar"
+import { Header } from "../components/layout/header"
+import { Sidebar } from "../components/layout/sidebar"
 import { useEffect } from "react"
 import { session } from "../utils/session-storage"
 

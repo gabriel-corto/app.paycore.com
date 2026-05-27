@@ -13,14 +13,18 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar"
-import { session } from "../utils/session-storage"
+} from "@/shared/components/ui/dropdown-menu"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/shared/components/ui/avatar"
+import { session } from "@/shared/utils/session-storage"
 import { useNavigate } from "react-router"
-import { useAuth } from "../hooks/useAuth"
-import { AccountMenuSkeleton } from "./account-menu-skeleton"
-import { getAvatarFallback } from "../utils/name-formatter"
-import { useTheme } from "./theme-provider"
+import { useAuth } from "@/shared/hooks/useAuth"
+import { AccountMenuSkeleton } from "../skeleton/account-menu-skeleton"
+import { getAvatarFallback } from "@/shared/utils/name-formatter"
+import { useTheme } from "../theme-provider"
 
 export function AccountMenu() {
   const navigate = useNavigate()

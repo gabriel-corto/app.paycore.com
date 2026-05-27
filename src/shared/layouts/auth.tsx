@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
 
-import { Logo } from "../components/logo"
+import { Logo } from "../components/layout/logo"
 import { useTheme } from "../components/theme-provider"
 
 export function AuthLayout() {
