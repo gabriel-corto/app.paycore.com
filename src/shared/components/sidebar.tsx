@@ -21,11 +21,13 @@ export function Sidebar() {
           <SidebarNavigationItem
             label="Overview"
             icon={DashboardCircleRemoveIcon}
+            to="/"
           />
 
           <SidebarNavigationItem
             label="P2P"
             icon={ArrowDataTransferHorizontalIcon}
+            to="/w/p2p"
           />
         </div>
       </div>

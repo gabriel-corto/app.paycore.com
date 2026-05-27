@@ -9,7 +9,7 @@ export const moneyFormatter = (amount: number) => {
 
 export const dateFormatter = (date: string) => {
   return new Intl.DateTimeFormat("pt-PT", {
-    hour: "numeric",
+    hour: "2-digit",
     minute: "2-digit",
     year: "numeric",
     day: "2-digit",
